@@ -1,0 +1,24 @@
+bail_index:
+    path:     /
+    defaults: { _controller: "wiseOwnerBundle:Bail:index" }
+    methods:  GET
+
+bail_show:
+    path:     /{id}/show
+    defaults: { _controller: "wiseOwnerBundle:Bail:show" }
+    methods:  GET
+
+bail_new:
+    path:     /new
+    defaults: { _controller: "wiseOwnerBundle:Bail:new" }
+    methods:  [GET, POST]
+
+bail_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "wiseOwnerBundle:Bail:edit" }
+    methods:  [GET, POST]
+
+bail_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "wiseOwnerBundle:Bail:delete" }
+    methods:  DELETE

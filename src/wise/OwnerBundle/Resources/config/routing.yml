@@ -1,0 +1,27 @@
+wise_owner_annonce:
+    resource: "@wiseOwnerBundle/Resources/config/routing/annonce.yml"
+    prefix:   /annonce
+
+wise_owner_appartement:
+    resource: "@wiseOwnerBundle/Resources/config/routing/appartement.yml"
+    prefix:   /appartement
+
+wise_owner_document:
+    resource: "@wiseOwnerBundle/Resources/config/routing/document.yml"
+    prefix:   /document
+
+wise_owner_locataire:
+    resource: "@wiseOwnerBundle/Resources/config/routing/locataire.yml"
+    prefix:   /locataire
+
+wise_owner_proprietaire:
+    resource: "@wiseOwnerBundle/Resources/config/routing/proprietaire.yml"
+    prefix:   /proprietaire
+
+wise_owner_bail:
+    resource: "@wiseOwnerBundle/Resources/config/routing/bail.yml"
+    prefix:   /bail
+
+wise_owner_homepage:
+    path:     /
+    defaults: { _controller: wiseOwnerBundle:Default:index }

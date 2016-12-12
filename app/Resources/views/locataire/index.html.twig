@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Locataires list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Pseudo</th>
+                <th>Email</th>
+                <th>Enabled</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for locataire in locataires %}
+            <tr>
+                <td><a href="{{ path('locataire_show', { 'id': locataire.id }) }}">{{ locataire.id }}</a></td>
+                <td>{{ locataire.nom }}</td>
+                <td>{{ locataire.pseudo }}</td>
+                <td>{{ locataire.email }}</td>
+                <td>{% if locataire.enabled %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('locataire_show', { 'id': locataire.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('locataire_edit', { 'id': locataire.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('locataire_new') }}">Create a new locataire</a>
+        </li>
+    </ul>
+{% endblock %}

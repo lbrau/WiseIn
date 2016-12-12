@@ -1,0 +1,24 @@
+locataire_index:
+    path:     /
+    defaults: { _controller: "wiseOwnerBundle:Locataire:index" }
+    methods:  GET
+
+locataire_show:
+    path:     /{id}/show
+    defaults: { _controller: "wiseOwnerBundle:Locataire:show" }
+    methods:  GET
+
+locataire_new:
+    path:     /new
+    defaults: { _controller: "wiseOwnerBundle:Locataire:new" }
+    methods:  [GET, POST]
+
+locataire_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "wiseOwnerBundle:Locataire:edit" }
+    methods:  [GET, POST]
+
+locataire_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "wiseOwnerBundle:Locataire:delete" }
+    methods:  DELETE

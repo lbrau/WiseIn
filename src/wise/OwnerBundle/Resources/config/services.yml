@@ -1,0 +1,4 @@
+services:
+#    wise_owner.example:
+#        class: wise\OwnerBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

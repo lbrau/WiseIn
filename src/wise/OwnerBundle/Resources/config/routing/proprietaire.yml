@@ -1,0 +1,24 @@
+proprietaire_index:
+    path:     /
+    defaults: { _controller: "wiseOwnerBundle:Proprietaire:index" }
+    methods:  GET
+
+proprietaire_show:
+    path:     /{id}/show
+    defaults: { _controller: "wiseOwnerBundle:Proprietaire:show" }
+    methods:  GET
+
+proprietaire_new:
+    path:     /new
+    defaults: { _controller: "wiseOwnerBundle:Proprietaire:new" }
+    methods:  [GET, POST]
+
+proprietaire_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "wiseOwnerBundle:Proprietaire:edit" }
+    methods:  [GET, POST]
+
+proprietaire_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "wiseOwnerBundle:Proprietaire:delete" }
+    methods:  DELETE

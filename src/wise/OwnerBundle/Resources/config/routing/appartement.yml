@@ -1,0 +1,24 @@
+appartement_index:
+    path:     /
+    defaults: { _controller: "wiseOwnerBundle:Appartement:index" }
+    methods:  GET
+
+appartement_show:
+    path:     /{id}/show
+    defaults: { _controller: "wiseOwnerBundle:Appartement:show" }
+    methods:  GET
+
+appartement_new:
+    path:     /new
+    defaults: { _controller: "wiseOwnerBundle:Appartement:new" }
+    methods:  [GET, POST]
+
+appartement_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "wiseOwnerBundle:Appartement:edit" }
+    methods:  [GET, POST]
+
+appartement_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "wiseOwnerBundle:Appartement:delete" }
+    methods:  DELETE
