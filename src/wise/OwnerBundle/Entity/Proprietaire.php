@@ -22,10 +22,10 @@ class Proprietaire
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="Appartement", mappedBy="proprietaire", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Bien", mappedBy="proprietaire", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
-    protected $appartement;
+    protected $bien;
 
     /**
      * @ORM\OneToMany(targetEntity="Alerte", mappedBy="proprietaire", cascade={"persist"})
@@ -210,42 +210,42 @@ class Proprietaire
      */
     public function __construct()
     {
-        $this->appartement = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->bien = new \Doctrine\Common\Collections\ArrayCollection();
         $this->annonce = new \Doctrine\Common\Collections\ArrayCollection();
         $this->locataire = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
-     * Add appartement
+     * Add Bien
      *
-     * @param \wise\OwnerBundle\Entity\Appartement $appartement
+     * @param \wise\OwnerBundle\Entity\Bien $bien
      * @return Proprietaire
      */
-    public function addAppartement(\wise\OwnerBundle\Entity\Appartement $appartement)
+    public function addBien(\wise\OwnerBundle\Entity\Bien $bien)
     {
-        $this->appartement[] = $appartement;
+        $this->bien[] = $bien;
 
         return $this;
     }
 
     /**
-     * Remove appartement
+     * Remove Bien
      *
-     * @param \wise\OwnerBundle\Entity\Appartement $appartement
+     * @param \wise\OwnerBundle\Entity\Bien $bien
      */
-    public function removeAppartement(\wise\OwnerBundle\Entity\Appartement $appartement)
+    public function removeBien(\wise\OwnerBundle\Entity\Bien $bien)
     {
-        $this->appartement->removeElement($appartement);
+        $this->bien->removeElement($bien);
     }
 
     /**
-     * Get appartement
+     * Get Bien
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getAppartement()
+    public function getBien()
     {
-        return $this->appartement;
+        return $this->bien;
     }
 
     /**

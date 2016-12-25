@@ -28,6 +28,12 @@ class Annonce
     protected $proprietaire;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Bien", inversedBy="annonce", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
+     */
+    protected $bien;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="titre", type="string", length=255)

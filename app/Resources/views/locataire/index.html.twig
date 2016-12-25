@@ -1,8 +1,6 @@
-{% extends 'base.html.twig' %}
-
+{% extends ':default:index.html.twig' %}
 {% block body %}
     <h1>Locataires list</h1>
-
     <table>
         <thead>
             <tr>
@@ -36,7 +34,6 @@
         {% endfor %}
         </tbody>
     </table>
-
     <ul>
         <li>
             <a href="{{ path('locataire_new') }}">Create a new locataire</a>

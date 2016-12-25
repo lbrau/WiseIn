@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Accueil proprietaire</title>
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/wiseowner/css/bootstrap/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/wiseowner/css/style.css') }}">
+    </head>
+    <body>
+        <h1 class="header text-center">Bienvenue sur WiseInvestor </h1>
+        <div class="container">
+            {#
+                Faire l'interface en ligne appart_grid_line.html.twig
+                dans le but de donner le choix de l'agencement a l'utilisateur
+            #}
+            <div class="panel-group">
+                <div class="panel-group">
+                    {% set cols = "" %}
+                    {% if biens|length > 1 %}
+                        {%  set cols = "col-sm-12" %}
+                    {% endif %}
+                    {% for bien in biens %}
+                        {% include 'wiseOwnerBundle:templates:appart_grid_line.html.twig' with {'cols': cols} %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <script src="node_modules/chart.js/src/chart.js"></script>
+    </body>
+</html>

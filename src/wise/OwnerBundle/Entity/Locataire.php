@@ -15,7 +15,7 @@ class Locataire
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="integer")w
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -28,10 +28,22 @@ class Locataire
     protected $proprietaire;
 
     /**
-     * @ORM\OneToMany(targetEntity="Appartement", mappedBy="locataire", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="DemandeIntervention", mappedBy="locataire", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
      */
-    protected $appartement;
+    protected $demandeIntervention;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Demande", mappedBy="locataire", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
+     */
+    protected $demande;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Bien", mappedBy="locataire", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
+     */
+    protected $bien;
 
 
     /**
@@ -192,39 +204,110 @@ class Locataire
      */
     public function __construct()
     {
-        $this->appartement = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->bien = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
-     * Add appartement
+     * Add bien
      *
-     * @param \wise\OwnerBundle\Entity\Appartement $appartement
+     * @param \wise\OwnerBundle\Entity\Bien $bien
      * @return Locataire
      */
-    public function addAppartement(\wise\OwnerBundle\Entity\Appartement $appartement)
+    public function addBien(\wise\OwnerBundle\Entity\Bien $bien)
     {
-        $this->appartement[] = $appartement;
+        $this->bien[] = $bien;
 
         return $this;
     }
 
     /**
-     * Remove appartement
+     * Remove bien
      *
-     * @param \wise\OwnerBundle\Entity\Appartement $appartement
+     * @param \wise\OwnerBundle\Entity\Bien $bien
      */
-    public function removeAppartement(\wise\OwnerBundle\Entity\Appartement $appartement)
+    public function removeBien(\wise\OwnerBundle\Entity\Bien $bien)
     {
-        $this->appartement->removeElement($appartement);
+        $this->bien->removeElement($bien);
     }
 
     /**
-     * Get appartement
+     * Get bien
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getAppartement()
+    public function getBien()
     {
-        return $this->appartement;
+        return $this->bien;
+    }
+
+    public function __toString()
+    {
+        return $this->getNom().' '.$this->getPseudo();
+    }
+
+    /**
+     * Add demandeIntervention
+     *
+     * @param \wise\OwnerBundle\Entity\DemandeIntervention $demandeIntervention
+     * @return Locataire
+     */
+    public function addDemandeIntervention(\wise\OwnerBundle\Entity\DemandeIntervention $demandeIntervention)
+    {
+        $this->demandeIntervention[] = $demandeIntervention;
+
+        return $this;
+    }
+
+    /**
+     * Remove demandeIntervention
+     *
+     * @param \wise\OwnerBundle\Entity\DemandeIntervention $demandeIntervention
+     */
+    public function removeDemandeIntervention(\wise\OwnerBundle\Entity\DemandeIntervention $demandeIntervention)
+    {
+        $this->demandeIntervention->removeElement($demandeIntervention);
+    }
+
+    /**
+     * Get demandeIntervention
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getDemandeIntervention()
+    {
+        return $this->demandeIntervention;
+    }
+
+    /**
+     * Add demande
+     *
+     * @param \wise\OwnerBundle\Entity\Demande $demande
+     * @return Locataire
+     */
+    public function addDemande(\wise\OwnerBundle\Entity\Demande $demande)
+    {
+        $this->demande[] = $demande;
+
+        return $this;
+    }
+
+    /**
+     * Remove demande
+     *
+     * @param \wise\OwnerBundle\Entity\Demande $demande
+     */
+    public function removeDemande(\wise\OwnerBundle\Entity\Demande $demande)
+    {
+        $this->demande->removeElement($demande);
+    }
+
+    /**
+     * Get demande
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getDemande()
+    {
+        return $this->demande;
     }
 }

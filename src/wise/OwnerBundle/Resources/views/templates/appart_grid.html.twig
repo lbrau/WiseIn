@@ -1,18 +1,18 @@
 <p class="{{ cols }}">
     <div class="panel panel-primary">
-        <div class="panel-heading">{{ appartement.libelle }}</div>
+        <div class="panel-heading">{{ bien.libelle }}</div>
         <div class="panel-body">
             <div class="">
                 <div class="col-sm-12 col-md-12">
                     <div class="thumbnail">
                         <img src="{{ asset('bundles/wiseowner/img/maison_default.jpg') }}" alt="...">
                         <div class="caption">
-                            <h3>{{ appartement.residence }}</h3>
+                            <h3>{{ bien.residence }}</h3>
                             <table class="table">
                                 <tr>
                                     <td>Locataire</td>
-                                    {% if null != appartement.locataire %}
-                                    <td>{{ appartement.locataire.nom }}</td>
+                                    {% if null != bien.locataire %}
+                                    <td>{{ bien.locataire.nom }}</td>
                                     {% else %}
                                         <td>Aucun locataire</td>
                                     {% endif %}

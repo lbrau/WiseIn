@@ -8,9 +8,9 @@ class DefaultController extends Controller
 {
     public function indexAction() {
         $em = $this->getDoctrine()->getManager();
-        $appartementRepo = $em->getRepository("wiseOwnerBundle:Appartement");
-        $appartements = $appartementRepo->findAll();
+        $bienRepo = $em->getRepository("wiseOwnerBundle:Bien");
+        $biens = $bienRepo->findAll();
 
-        return $this->render('wiseOwnerBundle:Default:index.html.twig', array('appartements' => $appartements));
+        return $this->render('wiseOwnerBundle:Default:dashboard.html.twig', array('biens' => $biens));
     }
 }

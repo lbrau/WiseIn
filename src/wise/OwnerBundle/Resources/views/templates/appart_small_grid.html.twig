@@ -1,28 +1,28 @@
 {#    <div class="panel panel-primary">
-        <div class="panel-heading">{{ appartement.libelle }}</div>
+        <div class="panel-heading">{{ bien.libelle }}</div>
         <div class="panel-body">
             ccccc
         </div>
     </div>
     <div class="panel panel-success">
-        <div class="panel-heading">{{ appartement.libelle }}</div>
+        <div class="panel-heading">{{ bien.libelle }}</div>
         <div class="panel-body">
             bbbbb
         </div>
     </div>#}
 <div class="panel panel-info row" >
-    <div class="panel-heading">{{ appartement.libelle }}</div>
+    <div class="panel-heading">{{ bien.libelle }}</div>
     <div class="panel-body">
         <div class="">
             <div class="col-sm-12 col-md-12">
                 <div class="thumbnail">
                     <span class="col-sm-4 col-md-4"><img src="{{ asset('bundles/wiseowner/img/maison_default.jpg') }}" alt="..."></span>
                     <span class="caption col-sm-4 col-md-4">
-                        <h3>{{ appartement.libelle }}</h3>
+                        <h3>{{ bien.libelle }}</h3>
                         <table class="table">
                             <tr>
                                 <td>Occupé</td>
-                                {% if null == appartement.locataire %}
+                                {% if null == bien.locataire %}
                                     <td>non</td>
                                 {% else %}
                                     <td>Oui</td>
@@ -30,8 +30,8 @@
                             </tr>
                             <tr>
                                 <td>Locataire</td>
-                                {% if null != appartement.locataire %}
-                                    <td>{{ appartement.locataire.nom }}</td>
+                                {% if null != bien.locataire %}
+                                    <td>{{ bien.locataire.nom }}</td>
                                 {% else %}
                                     <td>Aucun locataire</td>
                                 {% endif %}

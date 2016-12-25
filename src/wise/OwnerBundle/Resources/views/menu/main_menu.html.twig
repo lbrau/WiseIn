@@ -1,0 +1,31 @@
+<aside>
+    <div id="sidebar"  class="nav-collapse ">
+        <ul class="sidebar-menu" id="nav-accordion">
+            <li>
+                <a class="active" href="{{ path('wise_owner_homepage') }}">
+                    <i class="fa fa-dashboard"></i>
+                    <span>Accueil</span>
+                </a>
+            </li>
+            <li class="sub-menu">
+                <a href="{{ path('wise_owner_homepage') }}" >
+                    <i class="fa fa-laptop"></i>
+                    <span>Mes biens</span>
+                </a>
+            </li>
+            <li class="sub-menu">
+                <a href="{{ path('locataire_index') }}" >
+                    <i class="fa fa-laptop"></i>
+                    <span>Mes locataires</span>
+                </a>
+            </li>
+
+            <li class="sub-menu">
+                <a href="{{ path('document_index') }}" >
+                    <i class="fa fa-laptop"></i>
+                    <span>Mes documents</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</aside>
