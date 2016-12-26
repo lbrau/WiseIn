@@ -1,23 +1,15 @@
-{% extends ':default:index.html.twig' %}
+{% extends ':default:owner_index_layout.html.twig' %}
 {% block body %}
-<section id="main-content">
-    <section class="wrapper">
-        <div class="panel-group">
-            <div class="panel-group">
-                {% set cols = "" %}
-                {% if biens|length > 1 %}
-                    {%  set cols = "col-sm-12" %}
-                {% endif %}
-                {% for bien in biens %}
-                    {% include 'wiseOwnerBundle:templates:appart_grid_line.html.twig' with {'cols': cols} %}
-                {% endfor %}
-            </div>
-        </div>
-    </section>
+<section class="wrapper">
+    {% set cols = "" %}
+    {% if biens|length > 1 %}
+        {%  set cols = "col-sm-12" %}
+    {% endif %}
+    {% for bien in biens %}
+        {% include 'wiseOwnerBundle:templates:appart_grid_line.html.twig' with {'cols': cols} %}
+    {% endfor %}
 </section>
-<!--main content end-->
 
-<!-- Right Slidebar start -->
 <div class="sb-slidebar sb-right sb-style-overlay">
     <h5 class="side-title">Online Customers</h5>
     <ul class="quick-chat-list">
@@ -160,5 +152,4 @@
         </li>
     </ul>
 </div>
-<!-- Right Slidebar end -->
 {% endblock body %}

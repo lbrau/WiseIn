@@ -2,6 +2,7 @@
 
 namespace wise\OwnerBundle\Entity;
 
+use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="proprietaire")
  * @ORM\Entity(repositoryClass="wise\OwnerBundle\Repository\ProprietaireRepository")
  */
-class Proprietaire
+class Proprietaire extends BaseUser
 {
     /**
      * @var int
@@ -19,7 +20,7 @@ class Proprietaire
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @ORM\OneToMany(targetEntity="Bien", mappedBy="proprietaire", cascade={"persist"})
@@ -66,19 +67,8 @@ class Proprietaire
      */
     private $pseudo;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="email", type="string", length=255, unique=true)
-     */
-    private $email;
 
-    /**
-     * @var bool
-     *
-     * @ORM\Column(name="enabled", type="boolean", nullable=true)
-     */
-    private $enabled;
+
 
 
     /**

@@ -13,4 +13,8 @@ class DefaultController extends Controller
 
         return $this->render('wiseOwnerBundle:Default:dashboard.html.twig', array('biens' => $biens));
     }
+
+    public function welcomeAction() {
+        return $this->render(':default:welcome_index_layout.html.twig');
+    }
 }

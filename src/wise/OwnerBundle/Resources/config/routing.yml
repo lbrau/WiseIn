@@ -20,5 +20,13 @@ wise_owner_proprietaire:
     prefix:   /secured/proprietaire
 
 wise_owner_homepage:
-    path:     /
+    path:     /owner/
     defaults: { _controller: wiseOwnerBundle:Default:index }
+
+wise_owner_customer_homepage:
+    path:     /owner/
+    defaults: { _controller: wiseOwnerBundle:Default:index }
+
+wise_welcome:
+    path:     /
+    defaults: { _controller: wiseOwnerBundle:Default:welcome }
