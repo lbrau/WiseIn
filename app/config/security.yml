@@ -36,23 +36,45 @@ security:
         ROLE_SUPER_ADMIN: ROLE_ADMIN
 
     providers:
+        chain_provider:
+            chain:
+                providers: [fos_userbundle, fos_customebundle]
         fos_userbundle:
-            id: fos_user.user_provider.username
+            id: wise.user_provider
+        fos_customebundle:
+            id: wise.customer_provider
 
     firewalls:
-        main:
+        customer:
             pattern: ^/
             form_login:
-                provider: fos_userbundle
+                provider: chain_provider
+    #                provider: fos_userbundle
                 csrf_token_generator: security.csrf.token_manager
+                default_target_path: bien_index
                 # if you are using Symfony < 2.8, use the following config instead:
                 # csrf_provider: form.csrf_provider
 
             logout:       true
             anonymous:    true
+#        owner:
+#            pattern: ^/
+#            form_login:
+#                provider: fos_userbundle
+##                provider: fos_userbundle
+#                csrf_token_generator: security.csrf.token_manager
+#                default_target_path: wise_owner_homepage
+#                # if you are using Symfony < 2.8, use the following config instead:
+#                # csrf_provider: form.csrf_provider
+#
+#            logout:       true
+#            anonymous:    true
+
+
 
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/secured/, role: ROLE_OWNER }
+        - { path: ^/owner/, role: ROLE_OWNER }
+        - { path: ^/customer/, role: ROLE_CUSTOMER }

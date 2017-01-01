@@ -15,6 +15,12 @@ class DefaultController extends Controller
     }
 
     public function welcomeAction() {
-        return $this->render(':default:welcome_index_layout.html.twig');
+
+        $em = $this->getDoctrine()->getManager();
+        $owner = $em->getRepository("wiseOwnerBundle:Proprietaire")
+            ->findOneBy(array('username'=>'owner'));
+
+
+        return $this->render(':layout:welcome_index_layout.html.twig');
     }
 }

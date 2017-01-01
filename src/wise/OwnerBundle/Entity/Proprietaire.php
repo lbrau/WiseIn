@@ -56,17 +56,16 @@ class Proprietaire extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="prenom", type="string", length=255)
+     * @ORM\Column(name="prenom", type="string", length=255,nullable=true)
      */
     private $prenom;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="pseudo", type="string", length=255)
+     * @ORM\Column(name="pseudo", type="string", length=255,nullable=true)
      */
     private $pseudo;
-
 
 
 
@@ -200,6 +199,7 @@ class Proprietaire extends BaseUser
      */
     public function __construct()
     {
+        parent::__construct();
         $this->bien = new \Doctrine\Common\Collections\ArrayCollection();
         $this->annonce = new \Doctrine\Common\Collections\ArrayCollection();
         $this->locataire = new \Doctrine\Common\Collections\ArrayCollection();

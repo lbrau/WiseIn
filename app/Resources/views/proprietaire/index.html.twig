@@ -1,4 +1,4 @@
-{% extends ':default:index.html.twig' %}
+{% extends ':layout:owner_index_layout.html.twig' %}
 
 {% block body %}
     <h1>Proprietaires list</h1>
@@ -38,7 +38,6 @@
         {% endfor %}
         </tbody>
     </table>
-
     <ul>
         <li>
             <a href="{{ path('proprietaire_new') }}">Create a new proprietaire</a>

@@ -4,8 +4,7 @@ wise_owner_annonce:
 
 wise_owner_bien:
     resource: "@wiseOwnerBundle/Resources/config/routing/bien.yml"
-    prefix:   /bien
-
+    prefix:   customer/bien
 
 wise_owner_document:
     resource: "@wiseOwnerBundle/Resources/config/routing/document.yml"

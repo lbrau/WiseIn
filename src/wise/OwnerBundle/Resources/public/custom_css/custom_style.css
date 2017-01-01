@@ -1,0 +1,11 @@
+.header-frontend .navbar {
+    min-height: 75px;
+    size: 10px;
+}
+
+.main-slider {
+    background-color: #383a6f;
+}
+.caption img {
+    width: 230px;
+}
