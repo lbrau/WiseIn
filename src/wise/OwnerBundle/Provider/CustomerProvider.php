@@ -30,8 +30,9 @@ class CustomerProvider implements UserProviderInterface
 
     public function loadUserByUsername($username)
     {
-        $userRepo = $this->userManager->getRepository("wiseOwnerBundle:Proprietaire");
-        $user = $userRepo->findOneBy(array('username' => $username));
+        $ownerRepo = $this->userManager->getRepository("wiseOwnerBundle:Proprietaire");
+
+        $user = $ownerRepo->findOneBy(array('username' => $username));
 
         dump('sonde load customer provider', $user);
         return $user;

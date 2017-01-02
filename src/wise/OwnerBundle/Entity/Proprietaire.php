@@ -67,9 +67,6 @@ class Proprietaire extends BaseUser
      */
     private $pseudo;
 
-
-
-
     /**
      * Get id
      *

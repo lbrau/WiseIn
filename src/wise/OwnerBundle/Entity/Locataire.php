@@ -3,6 +3,8 @@
 namespace wise\OwnerBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
+
 
 /**
  * Locataire
@@ -10,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="locataire")
  * @ORM\Entity(repositoryClass="wise\OwnerBundle\Repository\LocataireRepository")
  */
-class Locataire
+class Locataire extends BaseUser
 {
     /**
      * @var int
@@ -19,11 +21,11 @@ class Locataire
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @ORM\ManyToOne(targetEntity="Proprietaire", inversedBy="locataire", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     protected $proprietaire;
 
@@ -59,20 +61,6 @@ class Locataire
      * @ORM\Column(name="pseudo", type="string", length=255, unique=true)
      */
     private $pseudo;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="email", type="string", length=255, unique=true)
-     */
-    private $email;
-
-    /**
-     * @var bool
-     *
-     * @ORM\Column(name="enabled", type="boolean", nullable=true)
-     */
-    private $enabled;
 
 
     /**
@@ -204,7 +192,9 @@ class Locataire
      */
     public function __construct()
     {
+        parent::__construct();
         $this->bien = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->pseudo = "pseudo";
     }
 
     /**

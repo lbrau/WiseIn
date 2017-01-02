@@ -32,6 +32,8 @@ security:
         FOS\UserBundle\Model\UserInterface: bcrypt
 
     role_hierarchy:
+        ROLE_CUSTOMER:    ROLE_CUSTOMER
+        ROLE_OWNER:       ROLE_OWNER
         ROLE_ADMIN:       ROLE_USER
         ROLE_SUPER_ADMIN: ROLE_ADMIN
 
@@ -51,7 +53,7 @@ security:
                 provider: chain_provider
     #                provider: fos_userbundle
                 csrf_token_generator: security.csrf.token_manager
-                default_target_path: bien_index
+                default_target_path: wise_welcome
                 # if you are using Symfony < 2.8, use the following config instead:
                 # csrf_provider: form.csrf_provider
 

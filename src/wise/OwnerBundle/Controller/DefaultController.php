@@ -3,10 +3,12 @@
 namespace wise\OwnerBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {
-    public function indexAction() {
+    public function indexAction()
+    {
         $em = $this->getDoctrine()->getManager();
         $bienRepo = $em->getRepository("wiseOwnerBundle:Bien");
         $biens = $bienRepo->findAll();
@@ -14,13 +16,15 @@ class DefaultController extends Controller
         return $this->render('wiseOwnerBundle:Default:dashboard.html.twig', array('biens' => $biens));
     }
 
-    public function welcomeAction() {
-
+    public function welcomeAction()
+    {
         $em = $this->getDoctrine()->getManager();
-        $owner = $em->getRepository("wiseOwnerBundle:Proprietaire")
-            ->findOneBy(array('username'=>'owner'));
 
-
+        $response = new Response();
+        $filename = "toto.mp4";
+        $response->headers->set("Content-type", "application/octet-stream");
+        $response->headers->set("Content-disposition", "attachment;filename=$filename");
+//        return $response;
         return $this->render(':layout:welcome_index_layout.html.twig');
     }
 }

@@ -10,7 +10,7 @@ parameters:
 # app/config/config.yml
 fos_user:
     db_driver: orm # other valid values are 'mongodb' and 'couchdb'
-    firewall_name: main
+    firewall_name: customer
     user_class: wise\OwnerBundle\Entity\Proprietaire
 
 framework:

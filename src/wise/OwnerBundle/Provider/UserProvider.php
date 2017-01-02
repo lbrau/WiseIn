@@ -20,7 +20,6 @@ use Symfony\Component\Security\Core\User\UserProviderInterface;
 
 class UserProvider implements UserProviderInterface
 {
-
     private $userManager;
 
     public function __construct($userManager)
@@ -31,15 +30,25 @@ class UserProvider implements UserProviderInterface
     public function loadUserByUsername($username)
     {
         $userRepo = $this->userManager->getRepository("wiseOwnerBundle:Proprietaire");
+        /** @var UserInterface $user */
         $user = $userRepo->findOneBy(array('username' => $username));
+//        dump($user);
+        if (null == $user) {
+            $customerRepo = $this->userManager->getRepository("wiseOwnerBundle:Locataire");
+            /** @var UserInterface $user */
+//            dump('dans le if du provider', $customerRepo);
+            $user = $customerRepo->findOneBy(array('username' => $username));
+        }
+//        dump('sonde load  2 user', $user);
 
-        dump('sonde load user', $user);
         return $user;
     }
 
     public function refreshUser(SecurityUserInterface $user)
     {
-        dump('sonde refresh user', );
+        // TODO il faut trouver une solution car on a un probleme les roles ne correspondent pas avec le cahrgement BD.
+        $user = $this->loadUserByUsername($user->getUsername());
+//        dump('sonde refresh  2 user', $user, $user->getRoles());
 
         return $user;
     }
