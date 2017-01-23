@@ -53,14 +53,14 @@ class Locataire extends BaseUser
      *
      * @ORM\Column(name="nom", type="string", length=255, nullable=true)
      */
-    private $nom;
+    protected $nom;
 
     /**
      * @var string
      *
      * @ORM\Column(name="pseudo", type="string", length=255, unique=true)
      */
-    private $pseudo;
+    protected $pseudo;
 
 
     /**

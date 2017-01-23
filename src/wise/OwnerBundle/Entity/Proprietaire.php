@@ -24,7 +24,7 @@ class Proprietaire extends BaseUser
 
     /**
      * @ORM\OneToMany(targetEntity="Bien", mappedBy="proprietaire", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     protected $bien;
 

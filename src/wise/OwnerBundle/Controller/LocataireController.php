@@ -19,7 +19,6 @@ class LocataireController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
         $locataires = $em->getRepository('wiseOwnerBundle:Locataire')->findAll();
 
         return $this->render('locataire/index.html.twig', array(

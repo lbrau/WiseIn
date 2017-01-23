@@ -1,0 +1,90 @@
+{% extends ":layout:login_layout.html.twig" %}
+
+{% block body %}
+    <div id="fb-root"></div>
+    {% include ":js_pluggin:fb_sdk_pluggin.js.twig" %}
+    {#<div#}
+            {#class="fb-like"#}
+            {#data-share="true"#}
+            {#data-width="450"#}
+            {#data-show-faces="true">#}
+    {#</div>#}
+    <div class="container">
+        <form class="form-signin" action="{{ path("fos_user_security_check") }}" method="post">
+            {% if csrf_token %}
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+            {% endif %}
+            <h2 class="form-signin-heading">Connectez-vous</h2>
+            <div class="login-wrap">
+                <input type="text" class="form-control" name="_username" placeholder="Login" autofocus>
+                <input type="password" name="_password" class="form-control" placeholder="Password">
+                <label class="checkbox">
+                    <input type="checkbox" id="remember_me" name="_remember_me" value="on"> Remember me
+                    <span class="pull-right">
+                    <a data-toggle="modal" href="#myModal"> Forgot Password?</a>
+                </span>
+                </label>
+                <input class="btn btn-lg btn-login btn-block" name="_submit" value="Connexion" type="submit">
+                <p>ou connectez-vous depuis un réseau social</p>
+                <div class="login-social-link">
+                    <a class="facebook" class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="false">
+                        <i class="fa fa-facebook"></i>
+                        <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="false"></div>
+                    </a>
+                    {#<a href="index.html" class="twitter">#}
+                        {#<i class="fa fa-twitter"></i>#}
+                        {#Twitter#}
+                    {#</a>#}
+                </div>
+                <div class="registration">
+                    Vous n'avez pas encore de compte ?
+                    <a class="" href="registration.html">
+                        Créer votre compte
+                    </a>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">Forgot Password ?</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Enter your e-mail address below to reset your password.</p>
+                            <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+
+                        </div>
+                        <div class="modal-footer">
+                            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+                            <button class="btn btn-success" type="button">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- modal -->
+        </form>
+    </div>
+{% endblock body %}
+
+        {#{% if error %}#}
+            {#<div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>#}
+        {#{% endif %}#}
+
+        {#<form action="{{ path("fos_user_security_check") }}" method="post">#}
+            {#{% if csrf_token %}#}
+                {#<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />#}
+            {#{% endif %}#}
+
+            {#<label for="username">{{ 'security.login.username'|trans }}</label>#}
+            {#<input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />#}
+
+            {#<label for="password">{{ 'security.login.password'|trans }}</label>#}
+            {#<input type="password" id="password" name="_password" required="required" />#}
+
+            {#<input type="checkbox" id="remember_me" name="_remember_me" value="on" />#}
+            {#<label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>#}
+
+            {#<input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />#}
+        {#</form>#}

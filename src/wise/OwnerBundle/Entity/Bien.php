@@ -33,7 +33,8 @@ class Bien
      */
     protected $locataire;
 
-    /**
+
+        /**
      * @ORM\OneToMany(targetEntity="Annonce", mappedBy="bien", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
      */

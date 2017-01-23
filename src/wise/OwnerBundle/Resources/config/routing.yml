@@ -26,6 +26,10 @@ wise_owner_customer_homepage:
     path:     /owner/
     defaults: { _controller: wiseOwnerBundle:Default:index }
 
+wise_user_registration:
+    path:     /registration/
+    defaults: { _controller: wiseOwnerBundle:Default:userResgistration }
+
 wise_welcome:
     path:     /
     defaults: { _controller: wiseOwnerBundle:Default:welcome }
