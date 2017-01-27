@@ -17,7 +17,7 @@ class Locataire extends BaseUser
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")w
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -47,7 +47,6 @@ class Locataire extends BaseUser
      */
     protected $bien;
 
-
     /**
      * @var string
      *
@@ -61,7 +60,6 @@ class Locataire extends BaseUser
      * @ORM\Column(name="pseudo", type="string", length=255, unique=true)
      */
     protected $pseudo;
-
 
     /**
      * Get id

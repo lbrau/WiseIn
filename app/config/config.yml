@@ -11,7 +11,7 @@ parameters:
 fos_user:
     db_driver: orm # other valid values are 'mongodb' and 'couchdb'
     firewall_name: customer
-    user_class: wise\OwnerBundle\Entity\Proprietaire
+    user_class: FOS\UserBundle\Model\User
 
 framework:
     #esi:             ~

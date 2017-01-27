@@ -31,33 +31,28 @@
 
 <body>
 <!--header start-->
-<header class="header-frontend">
-    <div class="navbar navbar-default navbar-static-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="fa fa-bars"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">Wise<span>Investor</span></a>
-            </div>
-            <div style="text-align: center; vertical-align:middle; height: 100px">
-                {# Faire un li horizontal pour proposer un bouton d'inscription et de connection. #}
-                <a style="display:block; margin-top: 30px;float: right;" href="#">
-                    <button class="btn btn-info">Se connecter</button>
-                </a>
+{% block header %}
+    <header class="header-frontend">
+        <div class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="fa fa-bars"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">Wise<span>Investor</span></a>
+                </div>
+                <div style="text-align: center; vertical-align:middle; height: 100px">
+                    {# Faire un li horizontal pour proposer un bouton d'inscription et de connection. #}
+                    <a style="display:block; margin-top: 30px;float: right;" href="#">
+                        <button class="btn btn-info">Se connecter</button>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-</header>
-<!--header end-->
+    </header>
+{% endblock header %}
 
-{% if is_granted('ROLE_CUSTOMER') %}
-    {{ render(controller('wiseOwnerBundle:Locataire:index')) }}
-{% elseif is_granted('ROLE_OWNER') %}
-    {{ render(controller('wiseOwnerBundle:Default:index', { 'id': 3 })) }}
-{% else %}
-  {% include ":template:welcome_anonymous.html.twig" %}
-{% endif %}
+{% include ":template:welcome_anonymous.html.twig" %}
 
 <script src="{{ asset('bundles/wiseowner/front/js/jquery.js') }}"></script>
 <script src="{{ asset('bundles/wiseowner/front/js/jquery-migrate-1.2.1.min.js') }}"></script>

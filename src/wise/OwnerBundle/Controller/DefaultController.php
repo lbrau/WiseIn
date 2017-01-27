@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
+use wise\OwnerBundle\Entity\Proprietaire;
 
 
 class DefaultController extends Controller
@@ -21,14 +22,22 @@ class DefaultController extends Controller
         return $this->render('wiseOwnerBundle:Default:dashboard.html.twig', array('biens' => $biens));
     }
 
-    public function welcomeAction()
+    public function welcomeAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-
-        $response = new Response();
-        $filename = "toto.mp4";
-        $response->headers->set("Content-type", "application/octet-stream");
-        $response->headers->set("Content-disposition", "attachment;filename=$filename");
+        // TODO faire une redirection tpl en fonction des utilisateur connecté
+        dump($this->getUser());
+        /** @var $user Proprietaire*/
+        if ($user = $this->getUser()) {
+           if ($user->hasRole('ROLE_OWNER') ) {
+               dump('sonde owner connected');
+               return $this->redirect($this->generateUrl('wise_owner_homepage'));
+           } else if ($user->getRoles()){}
+       }
+//        $response = new Response();
+//        $filename = "toto.mp4111";
+//        $response->headers->set("Content-type", "application/octet-stream");
+//        $response->headers->set("Content-disposition", "attachment;filename=$filename");
 //        return $response;
         return $this->render(':layout:welcome_index_layout.html.twig');
     }
