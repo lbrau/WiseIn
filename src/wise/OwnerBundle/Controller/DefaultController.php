@@ -2,6 +2,7 @@
 
 namespace wise\OwnerBundle\Controller;
 
+use FOS\UserBundle\Model\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -11,34 +12,42 @@ use wise\OwnerBundle\Entity\Proprietaire;
 
 class DefaultController extends Controller
 {
-    public function indexAction()
+    /**
+     * @return Response
+     */
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-
         $bienRepo = $em->getRepository("wiseOwnerBundle:Bien");
-        $loc = $em->getRepository("wiseOwnerBundle:Proprietaire")->findAll();
-        $biens = $bienRepo->findAll();
-        dump($loc,$biens);
-        return $this->render('wiseOwnerBundle:Default:dashboard.html.twig', array('biens' => $biens));
+        $biens = $bienRepo->findBy(array('proprietaire'=>$this->getUser()));
+
+        return $this->render('wiseOwnerBundle:proprietaire:owner_home_page.html.twig', array('biens' => $biens));
     }
 
+    /**
+     * @return Response
+     */
+    public function welcomeCustomerAction()
+    {
+        // TODO il faudra ranger le tpl dans le bundle au niveau des tpl du locataire.
+        return $this->render('wiseOwnerBundle:locataire:index.html.twig');
+    }
+
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     */
     public function welcomeAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        // TODO faire une redirection tpl en fonction des utilisateur connecté
-        dump($this->getUser());
-        /** @var $user Proprietaire*/
+        /** @var $user User */
         if ($user = $this->getUser()) {
-           if ($user->hasRole('ROLE_OWNER') ) {
-               dump('sonde owner connected');
+           if ($user->hasRole('ROLE_OWNER')) {
                return $this->redirect($this->generateUrl('wise_owner_homepage'));
-           } else if ($user->getRoles()){}
+           } else if ($user->hasRole('ROLE_CUSTOMER')) {
+               return $this->redirect($this->generateUrl('wise_owner_customer_homepage'));
+           }
        }
-//        $response = new Response();
-//        $filename = "toto.mp4111";
-//        $response->headers->set("Content-type", "application/octet-stream");
-//        $response->headers->set("Content-disposition", "attachment;filename=$filename");
-//        return $response;
+
         return $this->render(':layout:welcome_index_layout.html.twig');
     }
 
@@ -82,7 +91,6 @@ class DefaultController extends Controller
             'csrf_token' => $csrfToken,
         ));
     }
-
 
     public function userResgistrationAction()
     {

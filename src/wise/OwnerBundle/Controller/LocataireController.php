@@ -21,7 +21,7 @@ class LocataireController extends Controller
         $em = $this->getDoctrine()->getManager();
         $locataires = $em->getRepository('wiseOwnerBundle:Locataire')->findAll();
 
-        return $this->render('locataire/index.html.twig', array(
+        return $this->render('wiseOwnerBundle:locataire:index.html.twig', array(
             'locataires' => $locataires,
         ));
     }

@@ -121,4 +121,15 @@ class ProprietaireController extends Controller
             ->getForm()
         ;
     }
+
+    /**
+     * Generate owner left menu
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function generateLeftMenuAction(Request $request)
+    {
+        dump($request->attributes);
+        return $this->render('@wiseOwner/menu/main_menu.html.twig');
+    }
 }

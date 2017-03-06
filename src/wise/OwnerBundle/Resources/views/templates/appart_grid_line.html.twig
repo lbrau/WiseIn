@@ -19,7 +19,6 @@
                             <tr>
                                 <td>Locataire</td>
                                 {% if null != bien.locataire %}
-                                    <td>{{ dump(bien.proprietaire) }}</td>
                                     <td>{{ bien.locataire.nom }} {{ bien.locataire.pseudo }}</td>
                                 {% else %}
                                     <td>Aucun locataire</td>

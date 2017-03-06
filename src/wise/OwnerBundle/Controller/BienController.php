@@ -45,7 +45,7 @@ class BienController extends Controller
             return $this->redirectToRoute('bien_show', array('id' => $bien->getId()));
         }
 
-        return $this->render('bien/new.html.twig', array(
+        return $this->render('@wiseOwner/bien/new.html.twig', array(
             'bien' => $bien,
             'form' => $form->createView(),
         ));

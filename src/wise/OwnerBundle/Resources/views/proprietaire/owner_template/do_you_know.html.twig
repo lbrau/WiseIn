@@ -1,0 +1,124 @@
+<section class="panel">
+    <header class="panel-heading">
+        Le saviez-vous ?
+        <span class="tools pull-right">
+            <a class="fa fa-chevron-down" href="javascript:;"></a>
+            <a class="fa fa-times" href="javascript:;"></a>
+        </span>
+    </header>
+    <div class="panel-body">
+        <div class="timeline-messages">
+
+                {#{{ dump(bien.doyouknow) }}#}
+                {% for bien in biens %}
+
+                {% for doyoucontent in bien.doyouknow %}
+                    <div class="msg-time-chat">
+
+                    {#{{ dump(thing) }}#}
+                    <a href="#" class="message-img"><img class="avatar" src="{{ asset('bundles/wiseowner/img/'~default_img) }}" alt=""></a>
+                    <div class="message-body msg-in">
+                        <span class="arrow"></span>
+                        <div class="text">
+                            <p class="attribution"><a href="#">{{ doyoucontent.author }}</a></p>
+                            <p>{{ doyoucontent.content }}</p>
+                        </div>
+                    </div>
+                {#{{ dump(thing['association']) }}#}
+            </div>
+
+            {% endfor %}
+                {% endfor %}
+
+                {#{% if false == bien.DoYouKnow.picture %}#}
+                    {#<a href="#" class="message-img"><img class="avatar" src="{{ asset('bundles/wiseowner/img/'~default_img) }}" alt=""></a>#}
+                {#{% else %}#}
+                    {#<a href="#" class="message-img"><img class="avatar" src="{{ asset('bundles/wiseowner/img/'~bien.DoYouKnow.picture) }}" alt=""></a>#}
+                {#{% endif %}#}
+                {#<div class="message-body msg-in">#}
+                    {#<span class="arrow"></span>#}
+                    {#<div class="text">#}
+                        {#<p class="attribution"><a href="#">{{ bien.DoYouKnow.author }}</a></p>#}
+                        {#<p>{{ bien.DoYouKnow.content }}</p>#}
+                    {#</div>#}
+                {#</div>#}
+        </div>
+    </div>
+</section>
+
+{#<section class="panel">#}
+    {#<header class="panel-heading">#}
+        {#Le saviez-vous ?#}
+        {#<span class="tools pull-right">#}
+            {#<a class="fa fa-chevron-down" href="javascript:;"></a>#}
+            {#<a class="fa fa-times" href="javascript:;"></a>#}
+        {#</span>#}
+    {#</header>#}
+    {#<div class="panel-body">#}
+        {#<div class="timeline-messages">#}
+            {#<!-- Comment -->#}
+            {#<div class="msg-time-chat">#}
+                {#<a href="#" class="message-img"><img class="avatar" src="{{ asset('bundles/wiseowner/img/'~default_img) }}" alt=""></a>#}
+                {#<div class="message-body msg-in">#}
+                    {#<span class="arrow"></span>#}
+                    {#<div class="text">#}
+                        {#<p class="attribution"><a href="#">Stéphanie</a></p>#}
+                        {#<p>La taxe foncière augmentera de 15,2% à partir du Lundi 14 Juin</p>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+            {#<!-- /comment -->#}
+
+            {#<!-- Comment -->#}
+            {#<div class="msg-time-chat">#}
+                {#<a href="#" class="message-img"><img class="avatar" src="{{ asset('bundles/wiseowner/img/'~default_img) }}" alt=""></a>#}
+                {#<div class="message-body msg-out">#}
+                    {#<span class="arrow"></span>#}
+                    {#<div class="text">#}
+                        {#<p class="attribution"> <a href="#">Stéphanie</a></p>#}
+                        {#<p>L'augmentation générale des loyers cette année sera de 2.3%</p>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+            {#<!-- /comment -->#}
+
+            {#<!-- Comment -->#}
+            {#<div class="msg-time-chat">#}
+                {#<a href="#" class="message-img"><img class="avatar" src="{{ asset('bundles/wiseowner/img/pro-ac-1.png') }}" alt=""></a>#}
+                {#<div class="message-body msg-in">#}
+                    {#<span class="arrow"></span>#}
+                    {#<div class="text">#}
+                        {#<p class="attribution"><a href="#">Alexia</a></p>#}
+                        {#<p>Mes messages seront fait par le systeme</p>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+            {#<!-- /comment -->#}
+
+            {#<!-- Comment -->#}
+            {#<div class="msg-time-chat">#}
+                {#<a href="#" class="message-img"><img class="avatar" src="{{ asset('bundles/wiseowner/img/pro-ac-1.png') }}" alt=""></a>#}
+                {#<div class="message-body msg-out">#}
+                    {#<span class="arrow"></span>#}
+                    {#<div class="text">#}
+                        {#<p class="attribution"><a href="#">Alexia</a></p>#}
+                        {#<p>Mes messages seront fait par le systeme</p>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+            {#<!-- /comment -->#}
+            {#<!-- Comment -->#}
+            {#<div class="msg-time-chat">#}
+                {#<a href="#" class="message-img"><img class="avatar" src="{{ asset('bundles/wiseowner/img/pro-ac-1.png') }}" alt=""></a>#}
+                {#<div class="message-body msg-in">#}
+                    {#<span class="arrow"></span>#}
+                    {#<div class="text">#}
+                        {#<p class="attribution"><a href="#">Alexia</a></p>#}
+                        {#<p>Mes messages seront fait par le systeme</p>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+            {#<!-- /comment -->#}
+        {#</div>#}
+    {#</div>#}
+{#</section>#}

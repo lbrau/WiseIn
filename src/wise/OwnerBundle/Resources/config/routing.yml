@@ -20,16 +20,27 @@ wise_owner_proprietaire:
 
 wise_owner_homepage:
     path:     /owner/
-    defaults: { _controller: wiseOwnerBundle:Default:index }
+    defaults:
+        _controller: wiseOwnerBundle:Default:index
 
 wise_owner_customer_homepage:
-    path:     /owner/
-    defaults: { _controller: wiseOwnerBundle:Default:index }
+    path:     /customer/
+    defaults: { _controller: wiseOwnerBundle:Default:welcomeCustomer }
 
 wise_user_registration:
     path:     /registration/
     defaults: { _controller: wiseOwnerBundle:Default:userResgistration }
 
+owner_left_menu:
+    path: /owner/menu
+    defaults:
+        _controller: wiseOwnerBundle:Proprietaire:generateLeftMenu
+        _routes:
+        # Les params pour cette route ne fonctionnent pas. Voir pourquoi.
+          owner_welcome: wise_owner_homepage
+          owner_biens: wise_owner_bien
+
 wise_welcome:
     path:     /
-    defaults: { _controller: wiseOwnerBundle:Default:welcome }
+    defaults:
+        _controller: wiseOwnerBundle:Default:welcome

@@ -1,13 +1,22 @@
 services:
-#    wise_owner.example:
-#        class: wise\OwnerBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
-
     wise.user_provider:
         class: wise\OwnerBundle\Provider\UserProvider
         arguments:
             userManager: "@doctrine.orm.entity_manager"
+
     wise.customer_provider:
         class: wise\OwnerBundle\Provider\CustomerProvider
         arguments:
             userManager: "@doctrine.orm.entity_manager"
+
+    wise.HousingBailCalculator.service:
+        class: wise\OwnerBundle\Services\HousingBailCalculator
+
+    wise.bail.twig_extension:
+        class: wise\OwnerBundle\TwigExtension\BailExtension
+        public: true
+        arguments:
+          bailCalculator: "@wise.housingbailcalculator.service"
+        tags:
+            - { name: twig.extension }
+

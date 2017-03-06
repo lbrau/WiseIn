@@ -79,4 +79,4 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/owner/, role: ROLE_OWNER }
-        - { path: ^/customer/, role: ROLE_CUSTOMER }
+        - { path: ^/customer/, role: [ROLE_CUSTOMER,ROLE_OWNER] }

@@ -13,7 +13,16 @@ class BienType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('libelle')->add('residence')->add('numero')->add('adresse')->add('enabled')->add('photo')->add('proprietaire')->add('locataire')       ;
+        $builder
+            ->add('libelle')
+            ->add('residence')
+            ->add('numero')
+            ->add('adresse')
+            ->add('enabled')
+            ->add('photo')
+            ->add('proprietaire')
+            ->add('locataire')
+        ;
     }
     
     /**
