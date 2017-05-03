@@ -20,3 +20,11 @@ services:
         tags:
             - { name: twig.extension }
 
+    wise.date_format.twig_extension:
+            class: wise\OwnerBundle\TwigExtension\DateExtension
+            public: true
+            arguments:
+                requestStack: "@request_stack"
+            tags:
+                - { name: twig.extension }
+

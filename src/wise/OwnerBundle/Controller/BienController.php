@@ -19,10 +19,9 @@ class BienController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
         $biens = $em->getRepository('wiseOwnerBundle:Bien')->findAll();
 
-        return $this->render('bien/index.html.twig', array(
+        return $this->render('wiseOwnerBundle:bien:index.html.twig', array(
             'biens' => $biens,
         ));
     }

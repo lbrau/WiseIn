@@ -28,12 +28,9 @@ class HousingBailCalculator implements BailCalculator
 //        if (0 >= $bailType) {
 //            throw new \DivisionByZeroError("Le type de bail ne peut être de 0");
 //        }
-
 //        $renewalCount = ($dateToday - $dateBailStarted) / $bailType;
-
         //TODO faire le rapport entre le nombre d'année passé avec comme quotient le type de contrat de location
         // 3 ans pour les locations vides et 1 an pour les locations meublés.
-
         return 3;
     }
 }

@@ -49,36 +49,13 @@
         {% endif %}
         <div class="row">
             <div class="col-lg-8">
-                <section class="panel">
-                    <header class="panel-heading">
-                        Liste des biens immobiliers
-                    </header>
-                    <table class="table table-striped table-advance table-hover">
-                        <thead>
-                        <tr>
-                            <th><i class="fa fa-bullhorn"></i> Photo du bien</th>
-                            <th class="hidden-phone"><i class="fa fa-question-circle"></i> Locataire</th>
-                            {#<th class="hidden-phone">Status</th>#}
-                            <th><i class="fa fa-bookmark"></i> Loyer</th>
-                            <th><i class="fa fa-bookmark"></i> Bail</th>
-                            <th><i class=" fa fa-edit"></i> Etat</th>
-                            <th>Actions</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {% for bien in biens %}
-                            {% include 'wiseOwnerBundle:templates:appart_small_grid.html.twig' with {'cols': cols, 'bien': bien} only %}
-                            {#{% include 'wiseOwnerBundle:templates:appart_grid_line.html.twig' with {'cols': cols, 'bien': bien} only %}#}
-                        {% endfor %}
-                        </tbody>
-                    </table>
-                </section>
+                {% include "@wiseOwner/bien/Templates/list_bien.html.twig" with  {'biens': biens, 'cols': cols} only %}
             </div>
             <div class="col-lg-4" style="text-align: center; margin-bottom: 10px;" id="chart_div"><img style="height: 300px" src="{{ asset('bundles/wiseowner/img/loader5.gif') }}" alt=""></div>
         </div>
         <div class="row">
             <div class="col-lg-6">
-                {% include "wiseOwnerBundle:proprietaire/owner_template:event_list.html.twig" %}
+                {% include "wiseOwnerBundle:proprietaire/owner_template:event_list.html.twig" with {'biens': biens} only %}
             </div>
             <div class="col-lg-6">
                 {% include "wiseOwnerBundle:proprietaire/owner_template:do_you_know.html.twig" with {'biens': biens, 'default_img': default_img} only %}
@@ -89,6 +66,9 @@
 {% endblock body %}
 {% block javascripts %}
     {{ parent() }}
+    <script>
+        console.log('chargement du fichier hérité avec les imports JS owner-hp');
+    </script>
     <script src="{{ asset('bundles/wiseowner/assets/morris.js-0.4.3/morris.min.js') }}"></script>
     <script src="{{ asset('bundles/wiseowner/assets/morris.js-0.4.3/raphael-min.js') }}"></script>
     <script src="{{ asset('bundles/wiseowner/js/morris-script.js') }}"></script>

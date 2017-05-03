@@ -2,71 +2,75 @@
     <header class="panel-heading">
         Evenements de votre parc immobilier
         <span class="tools pull-right">
-                                <a class="fa fa-chevron-down" href="javascript:;"></a>
-                                <a class="fa fa-times" href="javascript:;"></a>
-                            </span>
+            <a class="fa fa-chevron-down" href="javascript:;"></a>
+            <a class="fa fa-times" href="javascript:;"></a>
+        </span>
     </header>
     <div class="panel-body profile-activity" >
-        <h5 class="pull-right alert alert-info" style="color: grey; width: 100%; text-align: center">12 Aout 2017</h5>
-        <div class="activity terques">
-                                      <span>
-                                          <i class="fa fa-shopping-cart"></i>
-                                      </span>
-            <div class="activity-desk">
-                <div class="panel">
-                    <div class="panel-body">
-                        <div class="arrow"></div>
-                        <i class=" fa fa-clock-o"></i>
-                        <h4>10:45</h4>
-                        <p>Un nouveau locataire vient d'emmenager dans la résidence de la Baumette.</p>
+        {% for bien in biens %}
+            {% for event in bien.event %}
+            <h5 class="pull-right alert alert-info" style="color: grey; width: 100%; text-align: center">{{  event.date | frenchFormat('w') | capitalize  }}</h5>
+            <div class="activity terques">
+                <span>
+                  <i class="fa fa-shopping-cart"></i>
+                </span>
+                <div class="activity-desk">
+                    <div class="panel">
+                        <div class="panel-body">
+                            <div class="arrow"></div>
+                            <i class=" fa fa-clock-o"></i>
+                            <h4>{{  event.date | date('H:i') }}</h4>
+                            <p>{{ event.content }}</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="activity alt purple">
-                                      <span>
-                                          <i class="fa fa-rocket"></i>
-                                      </span>
-            <div class="activity-desk">
-                <div class="panel">
-                    <div class="panel-body">
-                        <div class="arrow-alt"></div>
-                        <i class=" fa fa-clock-o"></i>
-                        <h4>12:30 AM</h4>
-                        <p>Le virement de l'appartement residence de la Baumette vient d'être émis par votre locataire</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="activity blue">
-                                      <span>
-                                          <i class="fa fa-bullhorn"></i>
-                                      </span>
-            <div class="activity-desk">
-                <div class="panel">
-                    <div class="panel-body">
-                        <div class="arrow"></div>
-                        <i class=" fa fa-clock-o"></i>
-                        <h4>10:45 AM</h4>
-                        <p>Une demande d'intervention consernant la plomberie vient d'être faite pour l'appartement résidence Le couturier</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="activity alt green">
-                                      <span>
-                                          <i class="fa fa-beer"></i>
-                                      </span>
-            <div class="activity-desk">
-                <div class="panel">
-                    <div class="panel-body">
-                        <div class="arrow-alt"></div>
-                        <i class=" fa fa-clock-o"></i>
-                        <h4>12:30 - Résidence de La Baumette</h4>
-                        <p>Votre locataire vient de joindre son attestation d'assurance sur la plateforme.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+            {% endfor %}
+        {% endfor %}
+        {#<div class="activity alt purple">#}
+            {#<span>#}
+              {#<i class="fa fa-rocket"></i>#}
+            {#</span>#}
+            {#<div class="activity-desk">#}
+                {#<div class="panel">#}
+                    {#<div class="panel-body">#}
+                        {#<div class="arrow-alt"></div>#}
+                        {#<i class=" fa fa-clock-o"></i>#}
+                        {#<h4>12:30 AM</h4>#}
+                        {#<p>Le virement de l'appartement residence de la Baumette vient d'être émis par votre locataire</p>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+        {#<div class="activity blue">#}
+            {#<span>#}
+              {#<i class="fa fa-bullhorn"></i>#}
+            {#</span>#}
+            {#<div class="activity-desk">#}
+                {#<div class="panel">#}
+                    {#<div class="panel-body">#}
+                        {#<div class="arrow"></div>#}
+                        {#<i class=" fa fa-clock-o"></i>#}
+                        {#<h4>10:45 AM</h4>#}
+                        {#<p>Une demande d'intervention consernant la plomberie vient d'être faite pour l'appartement résidence Le couturier</p>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+        {#<div class="activity alt green">#}
+                                      {#<span>#}
+                                          {#<i class="fa fa-beer"></i>#}
+                                      {#</span>#}
+            {#<div class="activity-desk">#}
+                {#<div class="panel">#}
+                    {#<div class="panel-body">#}
+                        {#<div class="arrow-alt"></div>#}
+                        {#<i class=" fa fa-clock-o"></i>#}
+                        {#<h4>12:30 - Résidence de La Baumette</h4>#}
+                        {#<p>Votre locataire vient de joindre son attestation d'assurance sur la plateforme.</p>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
     </div>
 </section>

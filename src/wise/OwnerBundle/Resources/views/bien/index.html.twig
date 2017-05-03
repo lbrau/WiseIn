@@ -1,49 +1,6 @@
-{% extends 'base.html.twig' %}
-
+{% extends '@wiseOwner/layout/owner_index_layout.html.twig' %}
 {% block body %}
-    <h1>Biens list</h1>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Libelle</th>
-                <th>Residence</th>
-                <th>Numero</th>
-                <th>Adresse</th>
-                <th>Enabled</th>
-                <th>Photo</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for bien in biens %}
-            <tr>
-                <td><a href="{{ path('bien_show', { 'id': bien.id }) }}">{{ bien.id }}</a></td>
-                <td>{{ bien.libelle }}</td>
-                <td>{{ bien.residence }}</td>
-                <td>{{ bien.numero }}</td>
-                <td>{{ bien.adresse }}</td>
-                <td>{% if bien.enabled %}Yes{% else %}No{% endif %}</td>
-                <td>{{ bien.photo }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('bien_show', { 'id': bien.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('bien_edit', { 'id': bien.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('bien_new') }}">Create a new bien</a>
-        </li>
-    </ul>
-{% endblock %}
+    {# TODO Voir pour rendre la taille variable pour le responsive #}
+    {% set cols = 12 %}
+    {% include "@wiseOwner/bien/Templates/list_bien.html.twig" with  {'biens': biens, 'cols': cols} only %}
+{% endblock body %}

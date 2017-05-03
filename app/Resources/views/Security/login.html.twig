@@ -1,14 +1,10 @@
 {% extends ":layout:login_layout.html.twig" %}
-
+{% block meta %}
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+{% endblock meta %}
 {% block body %}
     <div id="fb-root"></div>
     {% include ":js_pluggin:fb_sdk_pluggin.js.twig" %}
-    {#<div#}
-            {#class="fb-like"#}
-            {#data-share="true"#}
-            {#data-width="450"#}
-            {#data-show-faces="true">#}
-    {#</div>#}
     <div class="container">
         <form class="form-signin" action="{{ path("fos_user_security_check") }}" method="post">
             {% if csrf_token %}
@@ -36,6 +32,7 @@
                         {#Twitter#}
                     {#</a>#}
                 </div>
+
                 <div class="registration">
                     Vous n'avez pas encore de compte ?
                     <a class="" href="registration.html">
@@ -66,25 +63,14 @@
             <!-- modal -->
         </form>
     </div>
+    <script>
+        console.log('sonde de test google button');
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+            console.log('Name: ' + profile.getName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+        }
+    </script>
 {% endblock body %}
-
-        {#{% if error %}#}
-            {#<div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>#}
-        {#{% endif %}#}
-
-        {#<form action="{{ path("fos_user_security_check") }}" method="post">#}
-            {#{% if csrf_token %}#}
-                {#<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />#}
-            {#{% endif %}#}
-
-            {#<label for="username">{{ 'security.login.username'|trans }}</label>#}
-            {#<input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />#}
-
-            {#<label for="password">{{ 'security.login.password'|trans }}</label>#}
-            {#<input type="password" id="password" name="_password" required="required" />#}
-
-            {#<input type="checkbox" id="remember_me" name="_remember_me" value="on" />#}
-            {#<label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>#}
-
-            {#<input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />#}
-        {#</form>#}

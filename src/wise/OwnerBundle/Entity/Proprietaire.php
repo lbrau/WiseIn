@@ -23,6 +23,12 @@ class Proprietaire extends BaseUser
     protected $id;
 
     /**
+     * @ORM\OneToMany(targetEntity="Message", mappedBy="proprietaire", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
+     */
+    protected $messages;
+
+    /**
      * @ORM\OneToMany(targetEntity="Bien", mappedBy="proprietaire", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
      */

@@ -1,0 +1,24 @@
+<td ng-show="detail_{{ bien.id }}" class="details" colspan="8">
+    <table style="padding-left:50px;" cellspacing="0" cellpadding="5" border="0">
+        <tbody>
+        <tr>
+            <td>Locataire</td>
+            <td>
+                {% if bien.locataire == null %}
+                    Que dalle
+                {% else %}
+                    {{ bien.locataire.nom }}
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td>Début du bail</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Extra info:</td>
+            <td>And any further details here (img etc)</td>
+        </tr>
+        </tbody>
+    </table>
+</td>

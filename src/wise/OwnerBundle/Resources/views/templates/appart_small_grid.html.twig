@@ -10,7 +10,7 @@
             </span>
         </a>
     </td>
-    <td class="hidden-phone">
+    <td class="p-progress">
         {% set typeColor = "danger" %}
         {{ bien.residence }}
         {% if bien.locataire is defined and null != bien.locataire %}
@@ -33,12 +33,14 @@
         </div>
         <small>{{ bien.bail.dateDebut | bailProgressPercent(bien.bail.dateBailEnded) }}% terminé </small>
         <br>
-        <small>Renouvelé {{ 'now'|date('Y/m/d H:i:s') | bailRenewalNumber(bien.bail.dateDebut, bien.bail.type) }} fois</small>
+        {#<small>Renouvelé {{ 'now'|date('Y/m/d H:i:s') | bailRenewalNumber(bien.bail.dateDebut, bien.bail.type) }} fois</small>#}
+        <small>Débuté depuis {{ bien.bail.dateDebut | bailStartedFrom() }} </small>
     </td>
     <td><span class="label label-{{ typeColor }} label-mini">{% if  null != bien.locataire %}Loué{% else %}Vide{% endif %}</span></td>
     <td>
-        <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-        <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-        <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+        <button class="btn btn-success btn-xs btn-large-action">Changer l'état</button>
+        <button class="btn btn-primary btn-xs btn-large-action"><i class="fa fa-pencil"></i>Modifier</button>
+        <button class="btn btn-info btn-xs btn-large-action"><i class="fa fa-pencil"></i>Donner congés au locataire</button>
+        <button class="btn btn-danger btn-xs btn-large-action"><i class="fa fa-trash-o "></i>Supprimer</button>
     </td>
 </tr>

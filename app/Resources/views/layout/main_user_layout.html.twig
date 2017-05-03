@@ -44,4 +44,61 @@
         {% endblock main_body %}
         {% include "wiseOwnerBundle:footer:user_footer.html.twig" %}
     </body>
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/wiseowner/js/jquery.js') }}"></script>
+    <script src="{{ asset('bundles/wiseowner/js/bootstrap.min.js') }}"></script>
+    <script class="include" type="text/javascript" src="{{ asset('bundles/wiseowner/js/jquery.dcjqaccordion.2.7.js') }}"></script>
+    <script src="{{ asset('bundles/wiseowner/js/jquery.scrollTo.min.js') }}"></script>
+    <script src="{{ asset('bundles/wiseowner/js/jquery.nicescroll.js') }}"></script>
+    <script src="{{ asset('bundles/wiseowner/js/jquery.sparkline.js') }}"></script>
+    <script src="{{ asset('bundles/wiseowner/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js') }}"></script>
+    <script src="{{ asset('bundles/wiseowner/js/owl.carousel.js') }}"></script>
+    <script src="{{ asset('bundles/wiseowner/js/jquery.customSelect.min.js') }}"></script>
+    <script src="{{ asset('bundles/wiseowner/js/respond.min.js') }}"></script>
+    <script src="{{ asset('bundles/wiseowner/js/slidebars.min.js') }}"></script>
+    <script src="{{ asset('bundles/wiseowner/js/common-scripts.js') }}"></script>
+    <script src="{{ asset('bundles/wiseowner/js/sparkline-chart.js') }}"></script>
+    <script src="{{ asset('bundles/wiseowner/js/easy-pie-chart.js') }}"></script>
+    <script src="{{ asset('bundles/wiseowner/js/count.js') }}"></script>
+
+    <script>
+        $('.extense').on('click',function() {
+            var display = true;
+            $(this).toggle(display);
+            $(this).children().show();
+        })
+    </script>
+    {#<script src="{{ asset('bundles/wiseowner/js/jquery.nicescroll.js') }}"></script>#}
+    {#<script src="{{ asset('bundles/wiseowner/assets/morris.js-0.4.3/morris.min.js') }}"></script>#}
+    {#<script src="{{ asset('bundles/wiseowner/assets/morris.js-0.4.3/raphael-min.js') }}"></script>#}
+    {#<script src="{{ asset('bundles/wiseowner/js/morris-script.js') }}"></script>#}
+
+    <script>
+        //owl carousel
+        $(document).ready(function() {
+            $("#owl-demo").owlCarousel({
+                navigation : true,
+                slideSpeed : 300,
+                paginationSpeed : 400,
+                singleItem : true,
+                autoPlay:true
+            });
+        });
+        //custom select box
+        $(function(){
+            $('select.styled').customSelect();
+        });
+
+        $(window).on("resize",function(){
+            var owl = $("#owl-demo").data("owlCarousel");
+            owl.reinit();
+        });
+        console.log('chargement du js ok');
+        $('.sidebar-toggle-box').on('click', function(){
+            console.log('one click here');
+        });
+    </script>
+
+{% endblock javascripts %}
 </html>

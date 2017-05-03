@@ -30,6 +30,12 @@ class Locataire extends BaseUser
     protected $proprietaire;
 
     /**
+     * @ORM\OneToMany(targetEntity="Message", mappedBy="locataire", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
+     */
+    protected $messages;
+
+    /**
      * @ORM\OneToMany(targetEntity="DemandeIntervention", mappedBy="locataire", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
      */
