@@ -14,12 +14,13 @@ class BienController extends Controller
 {
     /**
      * Lists all bien entities.
-     *
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $biens = $em->getRepository('wiseOwnerBundle:Bien')->findAll();
+        //$biens = $em->getRepository('wiseOwnerBundle:Bien')->findAll();
+        $bienRepo = $em->getRepository("wiseOwnerBundle:Bien");
+        $biens = $bienRepo->findBy(array('proprietaire'=>$this->getUser()));
 
         return $this->render('wiseOwnerBundle:bien:index.html.twig', array(
             'biens' => $biens,

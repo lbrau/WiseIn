@@ -20,8 +20,13 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
         $bienRepo = $em->getRepository("wiseOwnerBundle:Bien");
         $biens = $bienRepo->findBy(array('proprietaire'=>$this->getUser()));
+        $messages = $em->getRepository('wiseOwnerBundle:Message')->findBy(array('proprietaire' => $this->getUser()));
 
-        return $this->render('wiseOwnerBundle:proprietaire:owner_home_page.html.twig', array('biens' => $biens));
+        return $this->render('wiseOwnerBundle:proprietaire:owner_home_page.html.twig',
+            array(
+                'biens' => $biens,
+                'messages' => $messages
+            ));
     }
 
     /**

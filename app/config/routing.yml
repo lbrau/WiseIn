@@ -1,3 +1,7 @@
+wise_owner_message:
+    resource: "@wiseOwnerBundle/Controller/MessageController.php"
+    type:     annotation
+
 wise_owner:
     resource: "@wiseOwnerBundle/Resources/config/routing.yml"
     prefix:   /

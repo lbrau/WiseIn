@@ -48,6 +48,12 @@ class Message
     private $date;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="auteur", type="string")
+     */
+    private $auteur;
+    /**
      * @var bool
      *
      * @ORM\Column(name="enabled", type="boolean")
@@ -162,5 +168,74 @@ class Message
     public function getFlag()
     {
         return $this->flag;
+    }
+
+    /**
+     * Set auteur
+     *
+     * @param string $auteur
+     * @return Message
+     */
+    public function setAuteur($auteur)
+    {
+        $this->auteur = $auteur;
+
+        return $this;
+    }
+
+    /**
+     * Get auteur
+     *
+     * @return string 
+     */
+    public function getAuteur()
+    {
+        return $this->auteur;
+    }
+
+    /**
+     * Set proprietaire
+     *
+     * @param \wise\OwnerBundle\Entity\Proprietaire $proprietaire
+     * @return Message
+     */
+    public function setProprietaire(\wise\OwnerBundle\Entity\Proprietaire $proprietaire = null)
+    {
+        $this->proprietaire = $proprietaire;
+
+        return $this;
+    }
+
+    /**
+     * Get proprietaire
+     *
+     * @return \wise\OwnerBundle\Entity\Proprietaire 
+     */
+    public function getProprietaire()
+    {
+        return $this->proprietaire;
+    }
+
+    /**
+     * Set locataire
+     *
+     * @param \wise\OwnerBundle\Entity\Locataire $locataire
+     * @return Message
+     */
+    public function setLocataire(\wise\OwnerBundle\Entity\Locataire $locataire = null)
+    {
+        $this->locataire = $locataire;
+
+        return $this;
+    }
+
+    /**
+     * Get locataire
+     *
+     * @return \wise\OwnerBundle\Entity\Locataire 
+     */
+    public function getLocataire()
+    {
+        return $this->locataire;
     }
 }
