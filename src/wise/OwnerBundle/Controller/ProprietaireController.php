@@ -90,7 +90,6 @@ class ProprietaireController extends Controller
 
     /**
      * Deletes a proprietaire entity.
-     *
      */
     public function deleteAction(Request $request, Proprietaire $proprietaire)
     {
@@ -129,7 +128,24 @@ class ProprietaireController extends Controller
      */
     public function generateLeftMenuAction(Request $request)
     {
-        dump($request->attributes);
         return $this->render('@wiseOwner/menu/main_menu.html.twig');
+    }
+
+    /**
+     * Generate owner top menu of the back-office.
+     *
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function generateTopMenuAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $messages = $em->getRepository('wiseOwnerBundle:Message')
+            ->findBy(array('proprietaire'=>$this->getUser()));
+
+        $messages = $em->getRepository('wiseOwnerBundle:Message')
+            ->findAll();
+
+        return $this->render('@wiseOwner/header/bo_header.html.twig', array('messages' => $messages));
     }
 }
