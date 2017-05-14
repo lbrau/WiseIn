@@ -14,7 +14,7 @@ fos_user:
     user_class: FOS\UserBundle\Model\User
 
 framework:
-    #esi:             ~
+    esi:             {enabled: true}
     translator:       ~
     secret:          "%secret%"
     router:

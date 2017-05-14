@@ -128,7 +128,10 @@ class ProprietaireController extends Controller
      */
     public function generateLeftMenuAction(Request $request)
     {
-        return $this->render('@wiseOwner/menu/main_menu.html.twig');
+        $response =  $this->render('@wiseOwner/menu/main_menu.html.twig');
+        $response->setSharedMaxAge(600);
+
+        return $response;
     }
 
     /**
@@ -146,6 +149,9 @@ class ProprietaireController extends Controller
         $messages = $em->getRepository('wiseOwnerBundle:Message')
             ->findAll();
 
-        return $this->render('@wiseOwner/header/bo_header.html.twig', array('messages' => $messages));
+        $response = $this->render('@wiseOwner/header/bo_header.html.twig', array('messages' => $messages));
+        $response->setSharedMaxAge(600);
+
+        return $response;
     }
 }
