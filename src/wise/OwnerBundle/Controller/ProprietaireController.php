@@ -129,9 +129,20 @@ class ProprietaireController extends Controller
     public function generateLeftMenuAction(Request $request)
     {
         $response =  $this->render('@wiseOwner/menu/main_menu.html.twig');
-        $response->setSharedMaxAge(600);
+        $response->setMaxAge($this->setCacheInMinutes(10));
 
         return $response;
+    }
+
+    /**
+     * Convert time to cache from minutes to seconds
+     *
+     * @param $value
+     * @return mixed
+     */
+    public function setCacheInMinutes($value)
+    {
+        return $value * 60;
     }
 
     /**

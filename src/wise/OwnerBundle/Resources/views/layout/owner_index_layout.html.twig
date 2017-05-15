@@ -5,7 +5,7 @@
         {#{% block header %}{% include 'wiseOwnerBundle:header:bo_header.html.twig' %}{% endblock header %}#}
         {% block header %}{{ render(controller('wiseOwnerBundle:Proprietaire:generateTopMenu')) }}{% endblock header %}
         {#{% block menu %}{{ render(controller('wiseOwnerBundle:Proprietaire:generateLeftMenu')) }}{% endblock menu %}#}
-        {% block menu %}{{ render_esi(controller('wiseOwnerBundle:Proprietaire:generateLeftMenu', {'max': 600})) }}{% endblock menu %}
+        {% block menu %}{{ render_esi(controller('wiseOwnerBundle:Proprietaire:generateLeftMenu')) }}{% endblock menu %}
         {#{% block menu %}{% include 'wiseOwnerBundle:menu:main_menu.html.twig' %}{% endblock menu %}#}
         <section id="main-content">
             <section class="wrapper site-min-height">
